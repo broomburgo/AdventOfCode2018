@@ -53,11 +53,8 @@ struct FrequencyChangeStep {
 
         currentFrequency += change
         
-        let preCount = seenFrequencies.count
-        seenFrequencies.insert(currentFrequency)
-        let postCount = seenFrequencies.count
-        
-        guard preCount == postCount else {
+        guard seenFrequencies.contains(currentFrequency) else {
+            seenFrequencies.insert(currentFrequency)
             return
         }
         
